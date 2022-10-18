@@ -5,7 +5,7 @@ Get-WmiObject win32_service | ForEach-Object {
 	$SvcAccessLvl=.\accesschk64.exe /accepteula -uc $env:username $_.name | findstr.exe $_.name
 	$SvcAccessLvlSplit=$SvcAccessLvl.Split(" ")[0]
 
-	#checking if the current user has write access to the service
+	#checking if the current user has write access on the service
 	if($SvcAccessLvlSplit -like '*W*')
 	{
 		#service name output
