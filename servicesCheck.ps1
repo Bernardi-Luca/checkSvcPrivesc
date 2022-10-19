@@ -38,7 +38,7 @@ Get-WmiObject win32_service | ForEach-Object{
 	$SvcFileAccessLvl=.\accesschk64.exe /accepteula -uwqs $userCheck $_.pathname.Split(" ")[0]
 	$SvcFileAccessLvlSplit=$SvcFileAccessLvl.Split(" ")[0]
 	
-	if($SvcAccessLvlSplit -like '*W*'){
+	if($SvcFileAccessLvlSplit -like '*W*'){
 
         write-host "!!!!! MODIFIABLE SERVICE BINARY !!!!!"
 
