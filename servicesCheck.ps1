@@ -8,7 +8,7 @@ Get-WmiObject win32_service | ForEach-Object{
 	#getting the type of privilege on the service for the current user
 	if($SvcAccessLvl=.\accesschk64.exe /accepteula -uc $userCheck $_.name -nobanner){
 	    $SvcAccessLvlSplit=$SvcAccessLvl.Split(" ")[0]
-    }
+    	}
 
 	#checking if the current user has write access to the service
 	if($SvcAccessLvlSplit -like '*W*')
@@ -35,7 +35,7 @@ Get-WmiObject win32_service | ForEach-Object{
 
 	if ($SvcFileAccessLvl=.\accesschk64.exe /accepteula -uwqs $userCheck $_.pathname.Split(" ")[0] -nobanner){
 	    $SvcFileAccessLvlSplit=$SvcFileAccessLvl.Split(" ")[0]
-    }
+    	}
 	
 	if($SvcFileAccessLvlSplit -like '*W*'){
 
